@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
-// import { Register } from "./auth/Register"
+import { Register } from "./auth/Register"
 
 export const Journey = () => (
   <>
@@ -17,7 +17,7 @@ export const Journey = () => (
     }} />
 
     <Route path="/login" render={props => <Login {...props} />} />
-    {/* <Route path="/register" render={props => <Register {...props} />} /> */}
+    <Route path="/register" render={props => <Register {...props} />} />
   </>
 
 )

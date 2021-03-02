@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink, useHistory } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import './NavBar.scss'
 // import Logo from "./r-logo.jpg"
 
@@ -27,13 +27,6 @@ export const NavBar = () => {
                     <li className="navbar__item">
                         <NavLink className="navbar__link" to="/login">Tutoring Signup</NavLink>
                     </li>
-            }
-            {
-                (localStorage.getItem("journey_token") !==null) ? 
-                    <li className="navbar__item">
-                        <NavLink className="navbar__link" to="/profile">Profile</NavLink>
-                    </li> :
-                    ""
             }
             {
                 (localStorage.getItem("journey_token") !==null) ? 
