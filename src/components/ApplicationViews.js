@@ -2,9 +2,11 @@ import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { AnnouncementList } from "./Announcements/AnnouncementList"
 import { AnnouncementProvider } from "./Announcements/AnnouncementProvider"
+import { AnnouncementForm } from "./Announcements/NewAnnouncement"
 import { ProfileList } from "./Profile/ProfileList"
 import { ResourceList } from "./Resources/ResourceList"
 import { Calendar } from "./Signup/Calendar"
+import { UserProvider } from "./Users/UserProvider"
 
 
 export const ApplicationViews = () => {
@@ -13,11 +15,21 @@ export const ApplicationViews = () => {
         <Route exact path="/resources" render={(props) => {
             return <ResourceList history={props.history} />
         }} />
+
+      <UserProvider>
         <AnnouncementProvider>
           <Route exact path="/" render={(props) => {
               return <AnnouncementList history={props.history} />
           }} />
+          <Route exact path="/new-announcement" render={(props) => {
+              if (localStorage.getItem("journey_token")){
+              return <AnnouncementForm history={props.history} />
+              } else {
+                return <Redirect to="/" />
+              }
+          }} />
         </AnnouncementProvider>
+      </UserProvider>
 
         <Route exact path="/profile" render={(props) => {
             if (localStorage.getItem("journey_token")) {

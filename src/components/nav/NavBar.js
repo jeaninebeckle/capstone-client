@@ -42,6 +42,7 @@ export const NavBar = () => {
                             onClick={() => {
                                 localStorage.removeItem("journey_token")
                                 history.push({ pathname: "/" })
+                                window.location.reload()
                             }}
                         >Logout</button>
                     </li> :

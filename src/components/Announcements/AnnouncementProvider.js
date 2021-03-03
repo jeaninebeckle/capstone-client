@@ -11,9 +11,21 @@ export const AnnouncementProvider = (props) => {
         .then(setAnnouncements)
   }
 
+  const addAnnouncement = newAnnouncement => {
+    return fetch("http://localhost:8000/announcements", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("journey_token")}`
+        },
+        body: JSON.stringify(newAnnouncement)
+    })
+        .then(getAnnouncements)
+}
+
   return (
     <AnnouncementContext.Provider value={{
-        announcements, getAnnouncements
+        announcements, getAnnouncements, addAnnouncement
     }}>
         {props.children}
     </AnnouncementContext.Provider>
