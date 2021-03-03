@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { AnnouncementList } from "./Announcements/AnnouncementList"
 import { AnnouncementProvider } from "./Announcements/AnnouncementProvider"
+import { AnnouncementForm } from "./Announcements/NewAnnouncement"
 import { ProfileList } from "./Profile/ProfileList"
 import { ResourceList } from "./Resources/ResourceList"
 import { Calendar } from "./Signup/Calendar"
@@ -16,6 +17,9 @@ export const ApplicationViews = () => {
         <AnnouncementProvider>
           <Route exact path="/" render={(props) => {
               return <AnnouncementList history={props.history} />
+          }} />
+          <Route exact path="/new-announcement" render={(props) => {
+              return <AnnouncementForm history={props.history} />
           }} />
         </AnnouncementProvider>
 

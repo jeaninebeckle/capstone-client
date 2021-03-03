@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react"
 import "./AnnouncementList.scss"
 import { AnnouncementContext } from "./AnnouncementProvider"
 
-export const AnnouncementList = () => {
+export const AnnouncementList = ({ history }) => {
   const { announcements, getAnnouncements } = useContext(AnnouncementContext)
 
   useEffect(() => {
@@ -29,6 +29,7 @@ export const AnnouncementList = () => {
                   })
                 }
               </div>
+              <button onClick={() => history.push("/new-announcement")}>New announcement</button>
         </div>
         <div>
           <p className="journey-descrip">Legacy Mission Village's Journey After School Program seeks to provide academic, social and cultural support to newly-arrived refugee high school students. Many refugee high school students arrive in the United States with limited or interrupted schooling due to their refugee journeys.<br></br><br></br>
