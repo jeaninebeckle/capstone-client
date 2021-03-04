@@ -6,7 +6,9 @@ import { AnnouncementForm } from "./Announcements/NewAnnouncement"
 import { ProfileList } from "./Profile/ProfileList"
 import { ResourceList } from "./Resources/ResourceList"
 import { Calendar } from "./Signup/Calendar"
+import { JourneyUserProvider } from "./Users/JourneyUserProvider"
 import { UserProvider } from "./Users/UserProvider"
+
 
 
 export const ApplicationViews = () => {
@@ -17,28 +19,31 @@ export const ApplicationViews = () => {
         }} />
 
       <UserProvider>
-        <AnnouncementProvider>
-          <Route exact path="/" render={(props) => {
-              return <AnnouncementList history={props.history} />
-          }} />
-          <Route exact path="/new-announcement" render={(props) => {
-              if (localStorage.getItem("journey_token")){
-              return <AnnouncementForm history={props.history} />
-              } else {
-                return <Redirect to="/" />
-              }
-          }} />
-        </AnnouncementProvider>
+        <JourneyUserProvider>
+          <AnnouncementProvider>
+            <Route exact path="/" render={(props) => {
+                return <AnnouncementList history={props.history} />
+            }} />
+            <Route exact path="/new-announcement" render={(props) => {
+                if (localStorage.getItem("journey_token")){
+                return <AnnouncementForm history={props.history} />
+                } else {
+                  return <Redirect to="/" />
+                }
+            }} />
+            <Route exact path="/profile" render={(props) => {
+                if (localStorage.getItem("journey_token")) {
+                  return <ProfileList history={props.history} />
+                } else {
+                  return <Redirect to="/" />
+                }
+                
+            }} />
+          </AnnouncementProvider>
+        </JourneyUserProvider>
       </UserProvider>
 
-        <Route exact path="/profile" render={(props) => {
-            if (localStorage.getItem("journey_token")) {
-              return <ProfileList history={props.history} />
-            } else {
-              return <Redirect to="/" />
-            }
-            
-        }} />
+
 
         <Route exact path="/tutoring-signup" render={(props) => {
           if (localStorage.getItem("journey_token")) {
