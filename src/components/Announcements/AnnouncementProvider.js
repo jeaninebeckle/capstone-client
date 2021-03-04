@@ -21,11 +21,22 @@ export const AnnouncementProvider = (props) => {
         body: JSON.stringify(newAnnouncement)
     })
         .then(getAnnouncements)
+  }
+
+  const deleteAnnouncement = (announcementId) => {
+    return fetch(`http://localhost:8000/announcements/${announcementId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("journey_token")}`
+        }            
+    })
+        .then(getAnnouncements)
 }
 
   return (
     <AnnouncementContext.Provider value={{
-        announcements, getAnnouncements, addAnnouncement
+        announcements, getAnnouncements, addAnnouncement, deleteAnnouncement
     }}>
         {props.children}
     </AnnouncementContext.Provider>
