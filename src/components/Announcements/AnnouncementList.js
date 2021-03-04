@@ -6,7 +6,7 @@ import "./AnnouncementList.scss"
 
 
 export const AnnouncementList = ({ history }) => {
-  const { announcements, getAnnouncements } = useContext(AnnouncementContext)
+  const { announcements, getAnnouncements, deleteAnnouncement } = useContext(AnnouncementContext)
   const { users, getUserById } = useContext(UserContext)
 
   const userId = parseInt(localStorage.getItem("journey_user_id"))
@@ -29,7 +29,9 @@ export const AnnouncementList = ({ history }) => {
                 {
                   announcements.map(announcement => {
                     return <section className="announcement" key={announcement.id}>
-                              <p>{announcement.content}</p>
+                              <p>{announcement.content} {users.is_staff===true ? <button onClick={() => window.confirm('Are you sure?') &&
+                                  deleteAnnouncement(announcement.id).then(() => history.push("/"))
+                                  }><i className="fas fa-trash-alt"></i></button> : ""} </p>
                               <p>Posted on {moment(announcement.date).format('MM/DD/YYYY')} </p>
                           </section>
                   })
