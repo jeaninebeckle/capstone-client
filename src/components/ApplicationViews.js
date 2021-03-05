@@ -5,6 +5,7 @@ import { AnnouncementProvider } from "./Announcements/AnnouncementProvider"
 import { AnnouncementForm } from "./Announcements/NewAnnouncement"
 import { ProfileList } from "./Profile/ProfileList"
 import { ResourceList } from "./Resources/ResourceList"
+import { ResourceProvider } from "./Resources/ResourceProvider"
 import { Calendar } from "./Signup/Calendar"
 import { JourneyUserProvider } from "./Users/JourneyUserProvider"
 import { UserProvider } from "./Users/UserProvider"
@@ -14,10 +15,12 @@ import { UserProvider } from "./Users/UserProvider"
 export const ApplicationViews = () => {
   return (
     <>
+      <ResourceProvider>
         <Route exact path="/resources" render={(props) => {
             return <ResourceList history={props.history} />
         }} />
-
+      </ResourceProvider>
+      
       <UserProvider>
         <JourneyUserProvider>
           <AnnouncementProvider>
