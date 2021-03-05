@@ -46,7 +46,9 @@ export const NavBar = () => {
                             }}
                         >Logout</button>
                     </li> :
-                    ""
+                    <button className="navbar__item">
+                        <NavLink className="navbar__link" to="/tutoring-signup">Login</NavLink>
+                    </button>
             }        
             </ul>
     )

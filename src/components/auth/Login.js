@@ -28,7 +28,7 @@ export const Login = () => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem( "journey_token", res.token )
                     localStorage.setItem( "journey_user_id", res.user_id )
-                    history.push("/")
+                    history.push("/tutoring-signup")
                 }
                 else {
                     invalidDialog.current.showModal()
