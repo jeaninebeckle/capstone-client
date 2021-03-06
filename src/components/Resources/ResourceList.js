@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react"
 import { ResourceContext } from "./ResourceProvider"
 import Collapsible from 'react-collapsible'
+import "./Resources.scss"
 
-export const ResourceList = () => {
+
+export const ResourceList = ({ history }) => {
 
   const { resources, getResources } = useContext(ResourceContext)
-
+  
 
   useEffect(() => {
     getResources()
@@ -15,6 +17,10 @@ export const ResourceList = () => {
   return (
     <>
     <h1>Resources</h1>
+    {
+      localStorage.getItem("journey_token") ? <div className="resource-button"><button onClick={() => history.push("/new-resource")}>Add new resource</button></div> : ""
+    }
+    
       <div className="grid">
         <div className="div1">
         <h3>School Subjects</h3>
