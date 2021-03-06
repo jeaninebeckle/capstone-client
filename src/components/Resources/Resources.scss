@@ -1,0 +1,55 @@
+
+
+.active, .Collapsible:hover {
+  background-color: #ccc;
+}
+
+// .panel {
+//   padding: 0 18px;
+//   background-color: white;
+//   display: none;
+//   overflow: hidden;
+//   max-height: 0;
+//   overflow: hidden;
+//   transition: max-height 0.2s ease-out;
+// }
+
+
+
+.Collapsible {
+  background-color: rgb(189, 188, 188);
+  color: #444;
+  padding: 18px;
+  border: none;
+  outline: none;
+  display: flex;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span {
+  cursor: pointer;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+   [left1] 50%
+   [right1] 50%;
+  grid-template-rows:
+   [row1] auto
+   [row2] auto;
+  grid-row-gap: 10em;
+}

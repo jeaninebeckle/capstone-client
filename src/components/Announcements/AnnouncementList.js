@@ -1,7 +1,7 @@
-import moment from "moment"
 import React, { useContext, useEffect } from "react"
 import { UserContext } from "../Users/UserProvider"
 import { AnnouncementContext } from "./AnnouncementProvider"
+import moment from "moment"
 import "./AnnouncementList.scss"
 
 
