@@ -11,12 +11,11 @@ export const AnnouncementForm = (props) => {
   const makeNewAnnouncement = () => {
     addAnnouncement({
       content: content.current.value,
-      date: moment(new Date()).format('YYYY-MM-DD'),
+      date: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
       submitter: parseInt(localStorage.getItem("journey_token"))
     })
       .then(() => props.history.push("/"))
   }
-  console.log(moment(new Date()).format('YYYY-MM-DD'))
 
   return (
     <form className="announcementForm">

@@ -3,7 +3,9 @@ import { Route, Redirect } from "react-router-dom"
 import { AnnouncementList } from "./Announcements/AnnouncementList"
 import { AnnouncementProvider } from "./Announcements/AnnouncementProvider"
 import { AnnouncementForm } from "./Announcements/NewAnnouncement"
+import { CategoryProvider } from "./Categories/CategoryProvider"
 import { ProfileList } from "./Profile/ProfileList"
+import { ResourceForm } from "./Resources/NewResource"
 import { ResourceList } from "./Resources/ResourceList"
 import { ResourceProvider } from "./Resources/ResourceProvider"
 import { Calendar } from "./Signup/Calendar"
@@ -11,14 +13,22 @@ import { JourneyUserProvider } from "./Users/JourneyUserProvider"
 import { UserProvider } from "./Users/UserProvider"
 
 
-
 export const ApplicationViews = () => {
   return (
     <>
       <ResourceProvider>
-        <Route exact path="/resources" render={(props) => {
-            return <ResourceList history={props.history} />
-        }} />
+        <CategoryProvider>
+          <Route exact path="/resources" render={(props) => {
+              return <ResourceList history={props.history} />
+          }} />
+          <Route exact path="/new-resource" render={(props) => {
+              if (localStorage.getItem("journey_token")) {
+                return <ResourceForm history={props.history} />
+              } else {
+                return <Redirect to="/" />
+              }    
+          }} />
+        </CategoryProvider>        
       </ResourceProvider>
       
       <UserProvider>

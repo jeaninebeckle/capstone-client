@@ -22,7 +22,6 @@
   padding: 18px;
   border: none;
   outline: none;
-  display: flex;
   width: 75%;
   margin-left: auto;
   margin-right: auto;
@@ -53,3 +52,12 @@ h3 {
    [row2] auto;
   grid-row-gap: 10em;
 }
+
+h1 {
+  text-align: center;
+}
+
+.resource-button {
+  text-align: center;
+}
+
