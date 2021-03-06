@@ -15,83 +15,70 @@ export const ResourceList = () => {
   return (
     <>
     <h1>Resources</h1>
-      {resources.map(resource => {
-        if(resource.category.id === 1) {
-          return (
-            <div id="div1">
-          <section className="school" key={resource.id}>
-            <Collapsible trigger="Click here for School Subject Resources">
+      <div className="grid">
+        <div className="div1">
+        <h3>School Subjects</h3>
+          <section className="school">
+            <Collapsible trigger="Click here">
               <ul>
-                <li><a href={resource.url}>{resource.content}</a></li>
+              {resources.map(resource => {
+                return ( resource.category.id === 1 ? 
+                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
+                )
+              })}
               </ul> 
             </Collapsible>
           </section>
-        </div>
-          )
-        }
-        if(resource.category.id === 2) {
-          return (
-            <div id="div2">
-          <section className="college" key={resource.id}>
-            <Collapsible trigger="Click here for College Resources">
-              <ul>
-                <li><a href={resource.url}>{resource.content}</a></li>
-              </ul> 
-            </Collapsible>
-          </section>
-        </div>
-          )
-        }
-        if(resource.category.id === 3) {
-          return (
-            <div id="div3">
-          <section className="life-skills" key={resource.id}>
-            <Collapsible trigger="Click here for Life Skill Resources">
-              <ul>
-                <li><a href={resource.url}>{resource.content}</a></li>
-              </ul> 
-            </Collapsible>
-          </section>
-        </div>
-          )
-        }
-        if(resource.category.id === 4) {
-          return (
-            <div id="div4">
-          <section className="high-school" key={resource.id}>
-            <Collapsible trigger="Click here for High School Resources">
-              <ul>
-                <li><a href={resource.url}>{resource.content}</a></li>
-              </ul> 
-            </Collapsible>
-          </section>
-        </div>
-          )
-        }
-        return (
-          <>
+        </div>        
+        
 
-        <div id="div3">
-          <section className="high-school" key={resource.id}>
-            <Collapsible trigger="Click here for High School Resources">
+        <div className="div2">
+        <h3>College</h3>
+          <section className="college">
+            <Collapsible trigger="Click here">
               <ul>
-                <li><a href={resource.url}>{resource.content}</a></li>
-              </ul>
+              {resources.map(resource => {
+                return ( resource.category.id === 2 ? 
+                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
+                )
+              })}
+              </ul> 
             </Collapsible>
           </section>
         </div>
-        <div id="div4">
-          <section className="college" key={resource.id}>
-            <Collapsible trigger="Click here for College Resources">
+  
+
+        <div className="div3">
+        <h3>Life Skills</h3>
+          <section className="life-skills">
+            <Collapsible trigger="Click here">
               <ul>
-                <li><a href={resource.url}>{resource.content}</a></li>
-              </ul>
+              {resources.map(resource => {
+                return ( resource.category.id === 3 ? 
+                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
+                )
+              })}
+              </ul> 
             </Collapsible>
           </section>
+        </div>
+
+        <div className="div4">
+        <h3>High School</h3>
+          <section className="high-school">
+            <Collapsible trigger="Click here">
+              <ul>
+              {resources.map(resource => {
+                return ( resource.category.id === 4 ? 
+                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
+                )
+              })}
+              </ul> 
+            </Collapsible>
+          </section>
+        </div>
         </div>
         </>
-        )
-      })}
-    </>
-  )
-}
+        
+    )
+  }

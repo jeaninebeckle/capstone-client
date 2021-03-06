@@ -1,4 +1,5 @@
 
+
 .active, .Collapsible:hover {
   background-color: #ccc;
 }
@@ -19,10 +20,12 @@
   background-color: rgb(189, 188, 188);
   color: #444;
   padding: 18px;
-  width: 100%;
-  text-align: left;
   border: none;
   outline: none;
+  display: flex;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 span {
@@ -35,35 +38,18 @@ html, body {
   margin: 0;
 }
 
-
-#div1 {
-  background: #DDD;
-  position: absolute;
-  height: 50%;
-  width: 50%;
+h3 {
+  text-align: center;
+  margin-top: 30px;
 }
 
-#div2 {
-  background: #AAA;
-  position: absolute;
-  right: 0;
-  width: 50%;
-  height: 50%;
-}
-
-#div3 {
-  background: #777;
-  width: 50%;
-  position: absolute;
-  bottom: 0;
-  height: 50%;
-}
-
-#div4 {
-  background: #444;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 50%;
+.grid {
+  display: grid;
+  grid-template-columns:
+   [left1] 50%
+   [right1] 50%;
+  grid-template-rows:
+   [row1] auto
+   [row2] auto;
+  grid-row-gap: 10em;
 }
