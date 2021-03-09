@@ -4,10 +4,10 @@ import React, { useState } from "react"
 export const CalContext = React.createContext()
 
 export const CalProvider = (props) => {
-  const [calText, setCalText] = useState([])
+  const [calTexts, setCalText] = useState([])
 
   const getCalText = () => {
-    return fetch("http://localhost:8000/resources")
+    return fetch("http://localhost:8000/caltexts")
         .then(res => res.json())
         .then(setCalText)
   }
@@ -15,7 +15,7 @@ export const CalProvider = (props) => {
 
   return (
     <CalContext.Provider value={{
-        calText, getCalText
+        calTexts, getCalText
     }}>
         {props.children}
     </CalContext.Provider>

@@ -9,6 +9,7 @@ import { ResourceForm } from "./Resources/NewResource"
 import { ResourceList } from "./Resources/ResourceList"
 import { ResourceProvider } from "./Resources/ResourceProvider"
 import { Calendar } from "./Signup/Calendar"
+import { CalProvider } from "./Signup/CalendarProvider"
 import { JourneyUserProvider } from "./Users/JourneyUserProvider"
 import { UserProvider } from "./Users/UserProvider"
 
@@ -57,7 +58,7 @@ export const ApplicationViews = () => {
       </UserProvider>
 
 
-
+      <CalProvider>
         <Route exact path="/tutoring-signup" render={(props) => {
           if (localStorage.getItem("journey_token")) {
             return <Calendar history={props.history} />
@@ -65,6 +66,7 @@ export const ApplicationViews = () => {
             return <Redirect to="/login" />
           }
         }} />
+      </CalProvider>
     </>
   )
 }
