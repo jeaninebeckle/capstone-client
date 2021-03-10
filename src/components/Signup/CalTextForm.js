@@ -22,10 +22,12 @@ export const CalTextForm = (props) => {
 
   useEffect(() => {
       getCalText()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
       getTextToEdit()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calTexts])
 
   const newText = () => {
