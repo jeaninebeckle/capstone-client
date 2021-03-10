@@ -29,6 +29,7 @@ export const Login = () => {
                     localStorage.setItem( "journey_token", res.token )
                     localStorage.setItem( "journey_user_id", res.user_id )
                     history.push("/tutoring-signup")
+                    window.location.reload()
                 }
                 else {
                     invalidDialog.current.showModal()

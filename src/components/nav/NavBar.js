@@ -1,11 +1,20 @@
-import React from 'react'
+import { React, useContext, useEffect } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
+import { UserContext } from '../Users/UserProvider'
 import './NavBar.scss'
 // import Logo from "./r-logo.jpg"
 
 export const NavBar = () => {
     const history = useHistory()
     
+    const { users, getUserById } = useContext(UserContext)
+
+    const userId = parseInt(localStorage.getItem("journey_user_id"))
+
+    useEffect(() => {
+        getUserById(userId)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [])
 
     return (
         <ul className="navbar">
@@ -32,6 +41,13 @@ export const NavBar = () => {
                 (localStorage.getItem("journey_token") !==null) ? 
                     <li className="navbar__item">
                         <NavLink className="navbar__link" to="/profile">Profile</NavLink>
+                    </li> :
+                    ""
+            }
+            {
+                (users.is_staff === true) ? 
+                    <li className="navbar__item">
+                        <NavLink className="navbar__link" to="/all-users">All Users</NavLink>
                     </li> :
                     ""
             }

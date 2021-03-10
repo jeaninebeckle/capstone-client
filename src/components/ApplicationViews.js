@@ -11,6 +11,7 @@ import { ResourceProvider } from "./Resources/ResourceProvider"
 import { Calendar } from "./Signup/Calendar"
 import { CalProvider } from "./Signup/CalendarProvider"
 import { CalTextForm } from "./Signup/CalTextForm"
+import { AllUsersList } from "./Users/AllUsersList"
 import { JourneyUserProvider } from "./Users/JourneyUserProvider"
 import { UserProvider } from "./Users/UserProvider"
 
@@ -52,7 +53,13 @@ export const ApplicationViews = () => {
                 } else {
                   return <Redirect to="/" />
                 }
-                
+            }} />
+            <Route exact path="/all-users" render={(props) => {
+                if (localStorage.getItem("journey_token")) {
+                  return <AllUsersList history={props.history} />
+                } else {
+                  return <Redirect to="/" />
+                }
             }} />
           </AnnouncementProvider>
         </JourneyUserProvider>
