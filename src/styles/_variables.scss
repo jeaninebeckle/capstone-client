@@ -1,1 +1,30 @@
-$favColor: rgb(0, 195, 255);
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700;800&display=swap');
+
+@mixin button-style($backgroundColor) {
+  border-radius: 4px;
+  background-color: ($backgroundColor);
+  border-color: white;
+  transition: .4s ease;
+  &:hover {
+    background: lighten($color: $bitter-lemon, $amount: 4%);
+  }
+  color: white;
+  text-shadow: -1px 1px 0 $spanish-gray,
+				  1px 1px 0 $spanish-gray,
+				  1px -1px 0 $spanish-gray,
+				  -1px -1px 0 $spanish-gray;
+  font-size: 1em;
+}
+
+@mixin body-font($fontsize, $weight) {
+  font-size: $fontsize;
+  font-family: 'Overpass', sans-serif;
+  font-weight: $weight;
+}
+
+@mixin header-font($fontsize, $weight) {
+  font-size: $fontsize;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: $weight;
+}

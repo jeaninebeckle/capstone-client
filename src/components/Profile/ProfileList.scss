@@ -1,0 +1,23 @@
+label {
+  padding: 5px;
+}
+
+.subjects {
+  display: grid;
+  grid-template-columns:
+   [left1] 50%
+   [right1] 50%;
+  grid-template-rows:
+   [row1] auto
+   [row2] auto;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.profile {
+  text-align: left;
+}
+
+div {
+  margin-left: 20px;
+}

@@ -2,7 +2,6 @@ import { React, useContext, useEffect } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { UserContext } from '../Users/UserProvider'
 import './NavBar.scss'
-// import Logo from "./r-logo.jpg"
 
 export const NavBar = () => {
     const history = useHistory()
@@ -19,8 +18,8 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                {/* <img alt="Rare Logo" className="navbar__logo" src={Logo} /> */}
-                <h1 style={{ textAlign: "center", fontSize: "2em", marginTop: "0" }}>It Takes A Village</h1>
+                <img alt="LMV Logo" className="navbar__logo" src="crop-logo.jpeg" />
+                {/* <h1 style={{ textAlign: "center", fontSize: "2em", marginTop: "0" }}>It Takes A Village</h1> */}
             </li>
             <li className="navbar__item">
                 <NavLink className="navbar__link" to="/">Home</NavLink>

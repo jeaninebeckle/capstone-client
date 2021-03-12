@@ -1,3 +1,6 @@
+@import '../../styles/styles';
+@import '../../styles/variables';
+
 .journey-descrip {
   display: flex;
   max-width: 1000px;
@@ -22,4 +25,22 @@
 
 .fas {
   cursor: pointer;
+}
+
+.announcements {
+  white-space: pre-line;
+}
+
+.form-control {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  @include button-style($bitter-lemon)
+}
+
+.footer {
+  font-size: .75em;
 }

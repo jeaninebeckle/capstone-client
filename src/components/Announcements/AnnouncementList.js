@@ -32,7 +32,8 @@ export const AnnouncementList = ({ history }) => {
                               <p>{announcement.content} {users.is_staff===true ? <i className="fas fa-trash-alt" onClick={() => window.confirm('Are you sure?') &&
                                   deleteAnnouncement(announcement.id).then(() => history.push("/"))
                                   }></i> : ""} </p>
-                              <p>Posted on {moment(announcement.date).format('MM/DD/YYYY')} </p>
+                              <p className="footer">Posted on {moment(announcement.date).format('MM/DD/YYYY')} </p>
+                              <hr></hr>
                           </section>
                   })
                 }

@@ -5,3 +5,15 @@
 // body {
 //   background-color: $favColor;
 // }
+
+p {
+  @include body-font(25px, 400)
+}
+
+h1 {
+  @include header-font(50px, 500)
+}
+
+hr {
+  border-top: 1px solid rgba(154, 155, 157, 1);
+}
