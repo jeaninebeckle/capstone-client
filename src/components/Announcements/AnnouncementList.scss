@@ -8,6 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   font-size: .9em;
+  margin-top: 75px;
 }
 
 .volunteer {
@@ -15,6 +16,7 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  color: rgb(28, 28, 28);
 }
 
 .intro {
@@ -23,8 +25,15 @@
   margin-right: auto;
 }
 
+.footer {
+  font-size: .75em;
+}
+
 .fas {
   cursor: pointer;
+  float: right;
+  bottom: 0;
+  font-size: 1.5em;
 }
 
 .announcements {
@@ -41,6 +50,21 @@ button {
   @include button-style($bitter-lemon)
 }
 
-.footer {
-  font-size: .75em;
+.new-a {
+  margin-top: 30px;
+}
+
+.tagline {
+  margin-top: none;
+  @include header-font(30px, 400)
+}
+
+.announcement-header {
+  padding-top: 50px;
+  @include header-font(40px, 400);
+  margin-bottom: 50px;
+}
+
+.vol-link:hover {
+  color: $umber !important;
 }
