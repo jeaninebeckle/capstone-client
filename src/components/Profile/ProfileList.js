@@ -9,10 +9,10 @@ import "./ProfileList.scss"
 export const ProfileList = () => {
 
   const { users, getUserById } = useContext(UserContext)
-  const { journeyusers, getJourneyUserById, updateJourneyUser } = useContext(JourneyUserContext)
+  const { journeyusers, getJourneyUserById, updateJourneyUser, setJourneyUsers } = useContext(JourneyUserContext)
   const { subjects, getSubjects } = useContext(SubjectContext)
 
-  const [ journeyUser, setJourneyUsers ] = useState({})
+  // const [ journeyUser, setJourneyUsers ] = useState({})
 
   const userId = parseInt(localStorage.getItem("journey_user_id"))
 
@@ -24,20 +24,48 @@ export const ProfileList = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const updateUserSubjects = (e) => {
-    //updateJourneyUser function
+
+  const handleControlledInputChange = (e) => {
+    const newJourneyUser = Object.assign({}, journeyusers)
+    if(e.target.checked === true) {
+      newJourneyUser[e.target.name].push(parseInt(e.target.id))
+    } else {
+      if(e.target.checked === false) {
+        for (let i = 0; i < newJourneyUser.subjects.length; i++) {
+          // console.log("nJU subjects", newJourneyUser.subjects[i])
+          // console.log("e.target.id", parseInt(e.target.id))
+          if (newJourneyUser.subjects[i] === parseInt(e.target.id)) {
+            newJourneyUser.subjects.splice(i, 1);
+          }
+        }
+      }
+    }
+    console.log("this is my newJourneyUser", newJourneyUser.subjects)
+
+    setJourneyUsers(newJourneyUser)
   }
 
-  //when the user clicks the update button updateUser function happen
-  //this function will incorporate updateJourne
 
-//onChange? need to use the updateJourneyUser function whenever a box is checked or unchecked
-//checking box adds the subject to the user, unchecking removes it
-//how much does this code relate to what my react code will be once I change it to dropdowns for yes/no/maybe?
-//should I just skip the checkboxes and go straight to dropdowns?
-//do I need to get the whole user in state and modify a copy with the subjects?
-//A regular list of the checkboxes is displaying on the page. I want boxes to be checked on page load based on the database
-//Update button - UI
+  const getUserToEdit = () => {
+    const selectedUser = journeyusers || {}
+    console.log("selected user", journeyusers)
+    setJourneyUsers(selectedUser)
+  }
+
+  useEffect(() => {
+    getUserToEdit()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [journeyusers])
+
+  const newJourneyUser = () => {
+    console.log(journeyusers.id)
+    updateJourneyUser({
+      id: journeyusers.id,
+      subjects: journeyusers.subjects
+    }) 
+    .then(() => window.location.reload())
+  }
+
 
   return (
     <>
@@ -58,14 +86,32 @@ export const ProfileList = () => {
           <div className="subjects-detail">
               {
                 subjects.map(subject => {
-                  return <section className="subject" key={subject.id}>
-                            <input type="checkbox" id={subject.id} name="subject" className="subject-checkbox" value={subject.label} />
-                            <label htmlFor="subject">{subject.label}</label>
+                  return <section className="subject" key={subject.id}> 
+                  {
+                    journeyusers.map(user => {
+                      return <>
+                      <input onChange={handleControlledInputChange} 
+                            type="checkbox" 
+                            id={subject.id} 
+                            name="subjects" 
+                            className="subject-checkbox" 
+                            value={subject.label}
+                            {user.subject.id === subject.id ? defaultChecked : ""}
+                            />
+                            <label htmlFor="subjects">{subject.label}</label>
+                            </>
+                    })
+                  }                 
+
                         </section>
                 })
               }
             </div>
-            <button className="update-changes">Update Changes</button>
+            <button className="update-changes" type="submit"
+              onClick={e => {
+                e.preventDefault()
+                newJourneyUser()
+              }}>Update Changes</button>
       </div>
     </>
   )
