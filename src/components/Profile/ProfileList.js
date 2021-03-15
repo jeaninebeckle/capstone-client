@@ -32,8 +32,6 @@ export const ProfileList = () => {
     } else {
       if(e.target.checked === false) {
         for (let i = 0; i < newJourneyUser.subjects.length; i++) {
-          // console.log("nJU subjects", newJourneyUser.subjects[i])
-          // console.log("e.target.id", parseInt(e.target.id))
           if (newJourneyUser.subjects[i] === parseInt(e.target.id)) {
             newJourneyUser.subjects.splice(i, 1);
           }
@@ -67,6 +65,9 @@ export const ProfileList = () => {
   }
 
 
+  const existingSubjects = subjects.filter(subject => subject.id === journeyusers.subjects)
+
+
   return (
     <>
       <div className="page-div">
@@ -83,29 +84,23 @@ export const ProfileList = () => {
       <div className="subjects-div">
         <h3 className="profile">Tutoring Subjects</h3>
         <h5>Check the box next to each subject that you would be willing to tutor. If you are only somewhat comfortable with a subject, but would be willing to try helping a student if asked, please mark those subjects as well. Click the Update Changes button to save.</h5>
-          <div className="subjects-detail">
+        <div className="subjects-detail">
               {
                 subjects.map(subject => {
                   return <section className="subject" key={subject.id}> 
-                  {
-                    journeyusers.map(user => {
-                      return <>
                       <input onChange={handleControlledInputChange} 
                             type="checkbox" 
                             id={subject.id} 
                             name="subjects" 
                             className="subject-checkbox" 
                             value={subject.label}
-                            {user.subject.id === subject.id ? defaultChecked : ""}
+                            // defaultChecked={user.subject.id === subject.id ? true : ""}
                             />
                             <label htmlFor="subjects">{subject.label}</label>
-                            </>
-                    })
-                  }                 
-
-                        </section>
-                })
+                            </section>
+                })     
               }
+              
             </div>
             <button className="update-changes" type="submit"
               onClick={e => {
