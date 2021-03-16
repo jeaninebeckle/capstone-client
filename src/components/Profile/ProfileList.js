@@ -65,7 +65,7 @@ export const ProfileList = () => {
   }
 
 
-  const existingSubjects = subjects.filter(subject => subject.id === journeyusers.subjects)
+  // const existingSubjects = subjects.filter(subject => subject.id === journeyusers.subjects)
 
 
   return (
@@ -94,7 +94,7 @@ export const ProfileList = () => {
                             name="subjects" 
                             className="subject-checkbox" 
                             value={subject.label}
-                            // defaultChecked={user.subject.id === subject.id ? true : ""}
+                            checked={journeyusers.subjects && journeyusers.subjects.includes(subject.id) ? true : false}
                             />
                             <label htmlFor="subjects">{subject.label}</label>
                             </section>
