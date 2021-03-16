@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { JourneyUserContext } from "../Users/JourneyUserProvider"
 import { UserContext } from "../Users/UserProvider"
 import { SubjectContext } from "../Subjects/SubjectProvider"
@@ -12,7 +12,6 @@ export const ProfileList = () => {
   const { journeyusers, getJourneyUserById, updateJourneyUser, setJourneyUsers } = useContext(JourneyUserContext)
   const { subjects, getSubjects } = useContext(SubjectContext)
 
-  // const [ journeyUser, setJourneyUsers ] = useState({})
 
   const userId = parseInt(localStorage.getItem("journey_user_id"))
 
@@ -38,7 +37,6 @@ export const ProfileList = () => {
         }
       }
     }
-    console.log("this is my newJourneyUser", newJourneyUser.subjects)
 
     setJourneyUsers(newJourneyUser)
   }
@@ -46,7 +44,6 @@ export const ProfileList = () => {
 
   const getUserToEdit = () => {
     const selectedUser = journeyusers || {}
-    console.log("selected user", journeyusers)
     setJourneyUsers(selectedUser)
   }
 
@@ -63,9 +60,6 @@ export const ProfileList = () => {
     }) 
     .then(() => window.location.reload())
   }
-
-
-  // const existingSubjects = subjects.filter(subject => subject.id === journeyusers.subjects)
 
 
   return (
@@ -99,8 +93,7 @@ export const ProfileList = () => {
                             <label htmlFor="subjects">{subject.label}</label>
                             </section>
                 })     
-              }
-              
+              }              
             </div>
             <button className="update-changes" type="submit"
               onClick={e => {
