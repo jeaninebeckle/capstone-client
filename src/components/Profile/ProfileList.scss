@@ -1,0 +1,43 @@
+@import '../../styles/styles';
+@import '../../styles/variables';
+
+label {
+  padding: 5px;
+  font-size: 1.25em;
+}
+
+.subjects-detail {
+  display: grid;
+  grid-template-columns:
+   [left1] 50%
+   [right1] 50%;
+  grid-template-rows:
+   [row1] auto
+   [row2] auto;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.profile {
+  text-align: left;
+}
+
+.page-div, .subjects-div {
+  margin-left: 20px;
+  @include body-font(25, 400)
+}
+
+.profile-details {
+  margin-left: none;
+  line-height: 80%;
+  margin-bottom: 50px;
+}
+
+.update-changes {
+  margin-top: 20px;
+}
+
+h5 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}

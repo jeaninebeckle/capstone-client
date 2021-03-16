@@ -1,7 +1,28 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import 'variables';
+@import 'styles';
 
 // body {
 //   background-color: $favColor;
 // }
+
+p {
+  @include body-font(25px, 400)
+}
+
+h1 {
+  @include header-font(50px, 700)
+}
+
+hr {
+  border-top: 1px solid rgba(154, 155, 157, 1);
+}
+
+a {
+  color: rgb(28, 28, 28)
+}
+
+a:hover {
+  text-decoration: none;
+}

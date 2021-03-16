@@ -28,9 +28,21 @@ export const JourneyUserProvider = (props) => {
         .then(setJourneyUsers)    
     }
 
+    const updateJourneyUser = updatedUser => {
+      return fetch(`http://localhost:8000/journeyusers/${updatedUser.id}`, {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Token ${localStorage.getItem("journey_token")}`
+          },
+          body: JSON.stringify(updatedUser)
+      })
+          .then(getJourneyUsers)
+  }
+
     return (
       <JourneyUserContext.Provider value={{
-          journeyusers, getJourneyUsers, getJourneyUserById
+          journeyusers, getJourneyUsers, getJourneyUserById, updateJourneyUser, setJourneyUsers
       }}>
           {props.children}
       </JourneyUserContext.Provider>

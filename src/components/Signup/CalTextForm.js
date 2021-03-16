@@ -45,7 +45,7 @@ export const CalTextForm = (props) => {
       <fieldset>
           <div className="form-group">
               <label htmlFor="content">Content: </label>
-              <textarea id="wrap" name="content" required autoFocus className="form-control"
+              <textarea id="cal-form" name="content" required autoFocus className="form-control"
                   defaultValue={calText.content}
                   onChange={handleControlledInputChange}>
               </textarea>

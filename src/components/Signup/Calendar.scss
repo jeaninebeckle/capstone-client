@@ -1,5 +1,6 @@
 .calendar-info {
-  display: flex
+  display: flex;
+  white-space: pre-wrap;
 }
 
 .fa-edit {
@@ -8,6 +9,3 @@
   cursor: pointer;
 }
 
-#wrap {
-  white-space: pre-line;
-}

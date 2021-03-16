@@ -1,1 +1,27 @@
-$favColor: rgb(0, 195, 255);
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+@mixin button-style($backgroundColor) {
+  border-radius: 4px;
+  background-color: ($backgroundColor);
+  border-color: $bitter-lemon;
+  transition: .4s ease;
+  &:hover {
+    background: lighten($color: $bitter-lemon, $amount: 100%);
+  }
+  color: rgb(28, 28, 28);
+  font-size: 1em;
+  font-family: 'Overpass', sans-serif;
+}
+
+@mixin body-font($fontsize, $weight) {
+  font-size: $fontsize;
+  font-family: 'Overpass', sans-serif;
+  font-weight: $weight;
+}
+
+@mixin header-font($fontsize, $weight) {
+  font-size: $fontsize;
+  font-family: 'Lato', sans-serif;
+  font-weight: $weight;
+}

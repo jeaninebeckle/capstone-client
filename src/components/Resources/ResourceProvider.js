@@ -10,7 +10,7 @@ export const ResourceProvider = (props) => {
     return fetch("http://localhost:8000/resources")
         .then(res => res.json())
         .then(setResources)
-  }
+    }
 
   const addResource = newResource => {
     return fetch("http://localhost:8000/resources", {
@@ -22,7 +22,7 @@ export const ResourceProvider = (props) => {
         body: JSON.stringify(newResource)
     })
         .then(getResources)
-  }
+    }
 
   return (
     <ResourceContext.Provider value={{
@@ -30,5 +30,5 @@ export const ResourceProvider = (props) => {
     }}>
         {props.children}
     </ResourceContext.Provider>
-)
+    )
 }

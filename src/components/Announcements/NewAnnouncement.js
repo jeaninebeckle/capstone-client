@@ -22,10 +22,11 @@ export const AnnouncementForm = (props) => {
             <h2 className="announcementForm__title">Add a new announcement to the home page</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Content: </label>
-                    <input type="text" name="name" ref={content} required autoFocus className="form-control"
-                        placeholder="Your text here"
-                    />
+                    <label htmlFor="content">Content: </label>
+                    <textarea id="announcement-form" name="content"
+                    ref={content} required autoFocus className="form-control"
+                        placeholder="Your text here" rows="10">
+                    </textarea>
                 </div>
             </fieldset>
             <button type="submit"
