@@ -39,52 +39,50 @@ export const ApplicationViews = () => {
         <JourneyUserProvider>
           <SubjectProvider>
             <AnnouncementProvider>
-              <Route exact path="/" render={(props) => {
-                  return <AnnouncementList history={props.history} />
-              }} />
-              <Route exact path="/new-announcement" render={(props) => {
-                  if (localStorage.getItem("journey_token")){
-                  return <AnnouncementForm history={props.history} />
-                  } else {
-                    return <Redirect to="/" />
-                  }
-              }} />
-              <Route exact path="/profile" render={(props) => {
-                  if (localStorage.getItem("journey_token")) {
-                    return <ProfileList history={props.history} />
-                  } else {
-                    return <Redirect to="/" />
-                  }
-              }} />
-              <Route exact path="/all-users" render={(props) => {
-                  if (localStorage.getItem("journey_token")) {
-                    return <AllUsersList history={props.history} />
-                  } else {
-                    return <Redirect to="/" />
-                  }
-              }} />
+              <CalProvider>
+                <Route exact path="/" render={(props) => {
+                    return <AnnouncementList history={props.history} />
+                }} />
+                <Route exact path="/new-announcement" render={(props) => {
+                    if (localStorage.getItem("journey_token")){
+                    return <AnnouncementForm history={props.history} />
+                    } else {
+                      return <Redirect to="/" />
+                    }
+                }} />
+                <Route exact path="/profile" render={(props) => {
+                    if (localStorage.getItem("journey_token")) {
+                      return <ProfileList history={props.history} />
+                    } else {
+                      return <Redirect to="/" />
+                    }
+                }} />
+                <Route exact path="/all-users" render={(props) => {
+                    if (localStorage.getItem("journey_token")) {
+                      return <AllUsersList history={props.history} />
+                    } else {
+                      return <Redirect to="/" />
+                    }
+                }} />
+                <Route exact path="/tutoring-signup" render={(props) => {
+                    if (localStorage.getItem("journey_token")) {
+                      return <Calendar history={props.history} />
+                    } else {
+                      return <Redirect to="/login" />
+                    }
+                  }} />
+                  <Route exact path="/update-text" render={(props) => {
+                    if (localStorage.getItem("journey_token")) {
+                      return <CalTextForm history={props.history} />
+                    } else {
+                      return <Redirect to="/tutoring-signup" />
+                    }
+                  }} />
+              </CalProvider>
             </AnnouncementProvider>
           </SubjectProvider>
         </JourneyUserProvider>
-      </UserProvider>
-
-
-      <CalProvider>
-        <Route exact path="/tutoring-signup" render={(props) => {
-          if (localStorage.getItem("journey_token")) {
-            return <Calendar history={props.history} />
-          } else {
-            return <Redirect to="/login" />
-          }
-        }} />
-        <Route exact path="/update-text" render={(props) => {
-          if (localStorage.getItem("journey_token")) {
-            return <CalTextForm history={props.history} />
-          } else {
-            return <Redirect to="/tutoring-signup" />
-          }
-        }} />
-      </CalProvider>
+      </UserProvider>      
     </>
   )
 }
