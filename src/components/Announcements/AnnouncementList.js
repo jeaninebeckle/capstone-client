@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { UserContext } from "../Users/UserProvider"
 import { AnnouncementContext } from "./AnnouncementProvider"
+import { Link } from 'react-router-dom'
 import moment from "moment"
 import "./AnnouncementList.scss"
 
@@ -40,6 +41,14 @@ export const AnnouncementList = ({ history }) => {
               </div>
         {users.is_staff===true ? <button className="new-a" onClick={() => history.push("/new-announcement")}>New announcement</button> : "" }   
         </div>
+        <div className="row">
+              <div className="column calendar">
+                <Link to="/tutoring-signup"><img className="img-calendar" src="signup-card.png" alt="calendar" /></Link>
+              </div>
+              <div className="column resources">
+                <Link to="/resources"><img className="img-resources" src="online-resources.png" alt="laptop" /></Link>
+              </div>
+            </div>
         <div>
           <p className="journey-descrip">Legacy Mission Village's Journey After School Program seeks to provide academic, social and cultural support to newly-arrived refugee high school students. Many refugee high school students arrive in the United States with limited or interrupted schooling due to their refugee journeys.<br></br><br></br>
             In our Journey After School Program, students come to us every week not only for homework help, but for assistance navigating the college application process from filling out the FAFSA form to ACT prep and College tours. We also work to provide opportunities for students to experience cultural activities and the arts.</p>
