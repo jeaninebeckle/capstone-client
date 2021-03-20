@@ -7,13 +7,13 @@ export const ResourceProvider = (props) => {
   const [resources, setResources] = useState([])
 
   const getResources = () => {
-    return fetch("https://lmv-journey.web.app/resources")
+    return fetch("https://lmv-journey.herokuapp.com/resources")
         .then(res => res.json())
         .then(setResources)
     }
 
   const addResource = newResource => {
-    return fetch("https://lmv-journey.web.app/resources", {
+    return fetch("https://lmv-journey.herokuapp.com/resources", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

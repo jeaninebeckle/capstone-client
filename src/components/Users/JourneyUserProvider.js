@@ -7,7 +7,7 @@ export const JourneyUserProvider = (props) => {
     const [journeyusers, setJourneyUsers] = useState([])
 
     const getJourneyUsers = () => {
-        return fetch("https://lmv-journey.web.app/journeyusers", {
+        return fetch("https://lmv-journey.herokuapp.com/journeyusers", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("journey_token")}`
             }  
@@ -17,7 +17,7 @@ export const JourneyUserProvider = (props) => {
     }
 
     const getJourneyUserById = (userId) => {
-      return fetch(`https://lmv-journey.web.app/journeyusers/${userId}`, {
+      return fetch(`https://lmv-journey.herokuapp.com/journeyusers/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const JourneyUserProvider = (props) => {
     }
 
     const updateJourneyUser = updatedUser => {
-      return fetch(`https://lmv-journey.web.app/journeyusers/${updatedUser.id}`, {
+      return fetch(`https://lmv-journey.herokuapp.com/journeyusers/${updatedUser.id}`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",
