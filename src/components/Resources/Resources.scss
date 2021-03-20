@@ -1,45 +1,23 @@
+@import '../../styles/styles';
+@import '../../styles/variables';
 
-
-.Collapsible:hover {
-  background-color: #ccc;
-}
-
-
-.Collapsible {
-  background-color: rgb(189, 188, 188);
-  color: #444;
-  padding: 18px;
-  border: none;
-  outline: none;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-span {
+.card-header {
   cursor: pointer;
 }
 
-html, body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
+.accordion {
+  width: 450px;
+  margin-bottom: 50px;
 }
 
-h3 {
+.card-header:hover {
+  background-color: rgb(199, 199, 199);
+  transition: .4s ease;
+}
+
+h3, h2 {
   text-align: center;
   margin-top: 30px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns:
-   [left1] 50%
-   [right1] 50%;
-  grid-template-rows:
-   [row1] auto
-   [row2] auto;
-  grid-row-gap: 10em;
 }
 
 h1 {
@@ -48,4 +26,49 @@ h1 {
 
 .resource-button {
   text-align: center;
+  margin: 30px;
 }
+
+.resource-link:hover {
+  color: gray;
+}
+
+.resource-form-div {
+  margin: 50px;
+}
+
+.resource-p {
+  font-size: 20px !important;
+}
+
+label {
+  @include body-font(25px, 400);
+  padding: 0;
+  margin-top: 15px;
+}
+
+.form-control {
+  margin: 0
+}
+
+.create-button {
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.resource-container {
+  margin-left: auto;
+  margin-right: auto;
+  // padding-left: 65px;
+}
+
+.resource-card {
+  height: 225px;
+  width: 450px;
+  margin-bottom: 20px;
+}
+
+

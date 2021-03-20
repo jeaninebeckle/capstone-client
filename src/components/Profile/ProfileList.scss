@@ -1,7 +1,7 @@
 @import '../../styles/styles';
 @import '../../styles/variables';
 
-label {
+.subjects-label {
   padding: 5px;
   font-size: 1.25em;
 }
@@ -40,4 +40,8 @@ label {
 h5 {
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+.empty-footer {
+  height: 100px;
 }

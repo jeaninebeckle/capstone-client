@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { useHistory } from "react-router-dom"
+import './Auth.scss'
 
 export const Register = () => {
     const firstName = useRef()
@@ -49,27 +50,27 @@ export const Register = () => {
             <form className="form--register" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
                 <div className="field-container">
-                    <div style={{ padding: "50px" }}>
+                    <div className="full-name">
                         <fieldset>
-                            <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
+                            <input ref={firstName} type="text" name="firstName" className="register-form-control" placeholder="First name" required autoFocus />
                         </fieldset>
                         <fieldset>
-                            <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
+                            <input ref={lastName} type="text" name="lastName" className="register-form-control" placeholder="Last name" required />
                         </fieldset>
                         <fieldset>
-                            <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
+                            <input ref={email} type="email" name="email" className="register-form-control" placeholder="Email address" required />
                         </fieldset>
                     </div>
-                    <div style={{ padding: "50px" }}>
+                    <div className="password-div">
                         <fieldset>
-                            <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
+                            <input ref={password} type="password" name="password" className="register-form-control" placeholder="Password" required />
                             <p style={{ fontSize: '.8em', fontWeight: 'bold', padding: '0' }}><em> Minimum eight characters, at least one uppercase letter, one lowercase letter and one number </em></p>
                         </fieldset>
                         <fieldset className="verify-password">
-                            <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
+                            <input ref={verifyPassword} type="password" name="verifyPassword" className="register-form-control" placeholder="Verify password" required />
                         </fieldset>
                         <fieldset>
-                            <input type="text" ref={displayName} name="displayName" className="form-control" placeholder="Display name" required />
+                            <input type="text" ref={displayName} name="displayName" className="register-form-control" placeholder="Display name" required />
                         </fieldset>
                         <fieldset style={{
                             textAlign: "center"
@@ -80,6 +81,7 @@ export const Register = () => {
                     </div>
                 </div>
             </form>
+          <div className="empty-footer"></div>
         </main>
     )
 }

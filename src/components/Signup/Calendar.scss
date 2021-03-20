@@ -34,7 +34,12 @@ p {
   text-align: center;
 }
 
-.cal-page {
+.cal-page, .edit-cal-form {
   margin: 50px;
   margin-top: 0;
+}
+
+.save-cal-edit {
+  margin: 30px;
+  margin-left: 0;
 }

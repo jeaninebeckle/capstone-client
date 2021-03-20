@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useHistory } from "react-router-dom"
-// import "./Auth.css"
+import "./Auth.scss"
 
 
 export const Login = () => {
@@ -46,22 +46,22 @@ export const Login = () => {
             <section className="login-section">
                 <form className="form--login" onSubmit={handleLogin}>
                     <h2>Please log in to access the tutoring signup</h2>
+                    <div className="login-field-container">
                     <fieldset>
-                        <input ref={email} type="email" id="email" className="form-control"  placeholder="Email address" required autoFocus />
+                        <input ref={email} type="email" id="email" className="login-form-control"  placeholder="Email address" required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <input ref={password} type="password" id="password" className="form-control"  placeholder="Password" required />
+                        <input ref={password} type="password" id="password" className="login-form-control"  placeholder="Password" required />
                     </fieldset>
-                    <fieldset style={{
-                        textAlign:"center"
-                    }}>
-                        <button className="login-button" type="submit">Login</button>
+                    <fieldset>
+                        <button className="login-button" type="submit">Submit</button>
                     </fieldset>
+                    </div>
                 </form>
             </section>
-            <section>
-                <Link to="/register" className="link--register">Click here to register a new account.</Link>
-            </section>
+                <section className="register-link">
+                    <Link to="/register" className="link--register">Click here to register a new account.</Link>
+                </section>
         </main>
     )
 }
