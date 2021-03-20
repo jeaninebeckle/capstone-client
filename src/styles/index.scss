@@ -3,9 +3,6 @@
 @import 'variables';
 @import 'styles';
 
-// body {
-//   background-color: $favColor;
-// }
 
 p {
   @include body-font(25px, 400)

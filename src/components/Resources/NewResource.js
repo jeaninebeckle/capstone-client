@@ -29,19 +29,20 @@ export const ResourceForm = (props) => {
   }
 
   return (
+    <div className="resource-form-div">
     <form className="resourceForm">
             <h2 className="resourceForm__content">Add a new resource</h2>
-            <p>If you've found an online resource that you frequently visit and think would be helpful to other students and tutors, add it to the collection! <br></br>
-            All 3 fields must be completed.
+            <p className="resource-p">If you've found an online resource that you frequently visit and think would be helpful to other students and tutors, add it to the collection! <br></br>
+            <strong>All 3 fields must be completed.</strong>
             </p>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Title: </label>
-                    <input type="text" name="content" ref={content} required autoFocus className="form-control"
+                    <label htmlFor="title">Title: </label>
+                    <input type="text" id="title" name="content" ref={content} required autoFocus className="form-control"
                         placeholder="Website name / title of resource that will display"
                     />
-                    <label htmlFor="name">URL: </label>
-                    <input type="text" name="url" ref={url} required autoFocus className="form-control"
+                    <label htmlFor="url">URL: </label>
+                    <input type="text" id="url" name="url" ref={url} required autoFocus className="form-control"
                         placeholder="Website link"
                     />                    
                 </div>
@@ -59,7 +60,7 @@ export const ResourceForm = (props) => {
                     </select>
                 </div>
             </fieldset>
-            <button type="submit"
+            <button className="create-button" type="submit"
                 onClick={e => {
                     e.preventDefault()
                     makeNewResource()
@@ -67,5 +68,6 @@ export const ResourceForm = (props) => {
                 Create
             </button>
         </form>
+    </div>
   )
 }

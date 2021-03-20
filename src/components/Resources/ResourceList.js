@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { ResourceContext } from "./ResourceProvider"
-import Collapsible from 'react-collapsible'
+import { Accordion, Card, Container, Row, Col } from 'react-bootstrap'
 import "./Resources.scss"
 
 
@@ -16,75 +16,104 @@ export const ResourceList = ({ history }) => {
 
   return (
     <>
+    
     <h1>Resources</h1>
     {
       localStorage.getItem("journey_token") ? <div className="resource-button"><button onClick={() => history.push("/new-resource")}>Add new resource</button></div> : ""
     }
-    
-      <div className="grid">
-        <div className="div1">
-        <h3>School Subjects</h3>
-          <section className="school">
-            <Collapsible trigger="Click here">
-              <ul>
+
+  <Container className="resource-container">
+    <Row xs={1} md={2}>
+      <Col>
+      <img className="resource-card" src="school-subjects.png" alt="calculator and notepad"/>
+    <Accordion>
+      <Card>
+        <Accordion.Toggle as={Card.Header} eventKey="0">
+          School Subjects
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey="0">
+          <Card.Body>
+          <ul>
               {resources.map(resource => {
                 return ( resource.category.id === 1 ? 
-                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
+                <li key={resource.id}><a className="resource-link" href={resource.url} target="blank">{resource.content}</a></li> : ""
                 )
               })}
               </ul> 
-            </Collapsible>
-          </section>
-        </div>        
-        
-
-        <div className="div2">
-        <h3>College</h3>
-          <section className="college">
-            <Collapsible trigger="Click here">
-              <ul>
-              {resources.map(resource => {
-                return ( resource.category.id === 2 ? 
-                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
-                )
-              })}
-              </ul> 
-            </Collapsible>
-          </section>
-        </div>
-  
-
-        <div className="div3">
-        <h3>Life Skills</h3>
-          <section className="life-skills">
-            <Collapsible trigger="Click here">
-              <ul>
-              {resources.map(resource => {
-                return ( resource.category.id === 3 ? 
-                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
-                )
-              })}
-              </ul> 
-            </Collapsible>
-          </section>
-        </div>
-
-        <div className="div4">
-        <h3>High School</h3>
-          <section className="high-school">
-            <Collapsible trigger="Click here">
-              <ul>
-              {resources.map(resource => {
-                return ( resource.category.id === 4 ? 
-                <li key={resource.id}><a href={resource.url}>{resource.content}</a></li> : ""
-                )
-              })}
-              </ul> 
-            </Collapsible>
-          </section>
-        </div>
-        </div>
-        </>
+          </Card.Body>
+        </Accordion.Collapse>
+        </Card>
+      </Accordion>
+      </Col>
+      <Col>
+      <img className="resource-card" src="high-school.png" alt="students in a classroom"/>
+      <Accordion>
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="1">
+            High School
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>
+            <ul>
+                {resources.map(resource => {
+                  return ( resource.category.id === 4 ? 
+                  <li key={resource.id}><a className="resource-link" href={resource.url} target="blank">{resource.content}</a></li> : ""
+                  )
+                })}
+                </ul> 
+            </Card.Body>
+          </Accordion.Collapse>
+          </Card>
+        </Accordion>
+      </Col>
+    </Row>
+    <Row xs={1} md={2}>
+    <Col>
+    <img className="resource-card" src="college.png" alt="girl holding a diploma"/>
+      <Accordion>
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="2">
+            College
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="2">
+            <Card.Body>
+            <ul>
+                {resources.map(resource => {
+                  return ( resource.category.id === 2 ? 
+                  <li key={resource.id}><a className="resource-link" href={resource.url} target="blank">{resource.content}</a></li> : ""
+                  )
+                })}
+                </ul> 
+            </Card.Body>
+          </Accordion.Collapse>
+          </Card>
+      </Accordion>
+      </Col>
+      <Col>
+      <img className="resource-card" src="life-skills.png" alt="student driver sign"/>
+      <Accordion >
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="4">
+            Life Skills
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="4">
+            <Card.Body>
+            <ul>
+                {resources.map(resource => {
+                  return ( resource.category.id === 3 ? 
+                  <li key={resource.id}><a className="resource-link" href={resource.url} target="blank">{resource.content}</a></li> : ""
+                  )
+                })}
+                </ul> 
+            </Card.Body>
+          </Accordion.Collapse>
+          </Card>
+      </Accordion>
+      </Col>
+    </Row>
+  </Container>
+  <div className="empty-footer"></div>
+    </>
         
     )
   }

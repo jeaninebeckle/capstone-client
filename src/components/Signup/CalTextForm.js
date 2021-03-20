@@ -40,24 +40,26 @@ export const CalTextForm = (props) => {
   }
 
   return (
-    <form className="textForm">
-      <h2 className="textForm__title">Update the informational text on the calendar page</h2>
-      <fieldset>
-          <div className="form-group">
-              <label htmlFor="content">Content: </label>
-              <textarea id="cal-form" name="content" required autoFocus className="form-control"
-                  defaultValue={calText.content}
-                  onChange={handleControlledInputChange}>
-              </textarea>
-          </div>
-      </fieldset>
-      <button type="submit"
-            onClick={e => {
-                e.preventDefault()
-                newText()
-            }}>
-            Save
-        </button>
-    </form>
+    <div className="edit-cal-form">
+      <form className="textForm">
+        <h2 className="textForm__title">Update the informational text on the calendar page</h2>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="content">Content: </label>
+                <textarea id="cal-form" name="content" rows="10" required autoFocus className="form-control"
+                    defaultValue={calText.content}
+                    onChange={handleControlledInputChange}>
+                </textarea>
+            </div>
+        </fieldset>
+        <button className="save-cal-edit" type="submit"
+              onClick={e => {
+                  e.preventDefault()
+                  newText()
+              }}>
+              Save
+          </button>
+      </form>
+    </div>
   )
 }

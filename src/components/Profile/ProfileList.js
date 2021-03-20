@@ -90,7 +90,7 @@ export const ProfileList = () => {
                             value={subject.label}
                             checked={journeyusers.subjects && journeyusers.subjects.includes(subject.id) ? true : false}
                             />
-                            <label htmlFor="subjects">{subject.label}</label>
+                            <label className="subjects-label" htmlFor="subjects">{subject.label}</label>
                             </section>
                 })     
               }              
@@ -100,6 +100,7 @@ export const ProfileList = () => {
                 e.preventDefault()
                 newJourneyUser()
               }}>Update Changes</button>
+              <div className="empty-footer"></div>
       </div>
     </>
   )

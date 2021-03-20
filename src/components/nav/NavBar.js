@@ -2,9 +2,10 @@ import { React, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Navbar,Nav } from 'react-bootstrap';
 import { UserContext } from '../Users/UserProvider'
+
 import './NavBar.scss'
 
-export const NavBar = () => {
+export const NavBar = (p) => {
     const history = useHistory()
     
     const { users, getUserById } = useContext(UserContext)
@@ -18,7 +19,8 @@ export const NavBar = () => {
 
     return (
 
-    <Navbar collapseOnSelect expand="lg" >
+    <Navbar collapseOnSelect expand="lg">
+
       <Navbar.Brand href="/">
       <img
         src="/crop-logo.jpeg"
@@ -48,13 +50,13 @@ export const NavBar = () => {
         }
          {
             (localStorage.getItem("journey_token") !== null) ?                  
-                <button className="navbar__link logout"
+                <button className="navbar__link logout-button"
                     onClick={() => {
                         localStorage.removeItem("journey_token")
                         history.push({ pathname: "/" })
                         window.location.reload()
                     }}>Logout</button> :
-                <button>
+                <button className="logout-button">
                         <Nav.Link href="/tutoring-signup">Login</Nav.Link>
                 </button>
            } 
@@ -62,55 +64,5 @@ export const NavBar = () => {
   </Navbar.Collapse>
 </Navbar>
         
-        // <ul className="navbar">
-        //     <li className="navbar__item">
-        //         <img alt="LMV Logo" className="navbar__logo" src="crop-logo.jpeg" />
-        //         {/* <h1 style={{ textAlign: "center", fontSize: "2em", marginTop: "0" }}>It Takes A Village</h1> */}
-        //     </li>
-        //     <li className="navbar__item">
-        //         <NavLink className="navbar__link" to="/">Home</NavLink>
-        //     </li>
-        //     <li className="navbar__item">
-        //         <NavLink className="navbar__link" to="/resources">Resources</NavLink>
-        //     </li>
-            // {
-            //     (localStorage.getItem("journey_token") !==null) ? 
-            //         <li className="navbar__item">
-            //             <NavLink className="navbar__link" to="/tutoring-signup">Tutoring Signup</NavLink>
-            //         </li> :
-            //         <li className="navbar__item">
-            //             <NavLink className="navbar__link" to="/login">Tutoring Signup</NavLink>
-            //         </li>
-            // }
-            // {
-            //     (localStorage.getItem("journey_token") !==null) ? 
-            //         <li className="navbar__item">
-            //             <NavLink className="navbar__link" to="/profile">Profile</NavLink>
-            //         </li> :
-            //         ""
-            // }
-            // {
-            //     (users.is_staff === true) ? 
-            //         <li className="navbar__item">
-            //             <NavLink className="navbar__link" to="/all-users">All Users</NavLink>
-            //         </li> :
-            //         ""
-            // }
-        //     {
-        //         (localStorage.getItem("journey_token") !== null) ?
-        //             <li className="navbar__item">
-        //                 <button className="navbar__link logout"
-        //                     onClick={() => {
-        //                         localStorage.removeItem("journey_token")
-        //                         history.push({ pathname: "/" })
-        //                         window.location.reload()
-        //                     }}
-        //                 >Logout</button>
-        //             </li> :
-        //             <button className="navbar__item">
-        //                 <NavLink className="navbar__link" to="/tutoring-signup">Login</NavLink>
-        //             </button>
-        //     }        
-        //     </ul>
     )
 }
