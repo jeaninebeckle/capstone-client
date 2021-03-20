@@ -7,13 +7,13 @@ export const ResourceProvider = (props) => {
   const [resources, setResources] = useState([])
 
   const getResources = () => {
-    return fetch("http://localhost:8000/resources")
+    return fetch("https://lmv-journey.web.app/resources")
         .then(res => res.json())
         .then(setResources)
     }
 
   const addResource = newResource => {
-    return fetch("http://localhost:8000/resources", {
+    return fetch("https://lmv-journey.web.app/resources", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

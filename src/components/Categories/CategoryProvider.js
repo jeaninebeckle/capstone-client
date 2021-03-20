@@ -6,7 +6,7 @@ export const CategoryProvider = (props) => {
   const [categories, setCategories] = useState([])
 
   const getCategories = () => {
-    return fetch("http://localhost:8000/categories")
+    return fetch("https://lmv-journey.web.app/categories")
         .then(res => res.json())
         .then(setCategories)
   }

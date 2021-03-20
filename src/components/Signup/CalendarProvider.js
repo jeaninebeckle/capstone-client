@@ -7,13 +7,13 @@ export const CalProvider = (props) => {
   const [calTexts, setCalText] = useState([])
 
   const getCalText = () => {
-    return fetch("http://localhost:8000/caltexts")
+    return fetch("https://lmv-journey.web.app/caltexts")
         .then(res => res.json())
         .then(setCalText)
   }
 
   const updateCalText = text => {
-    return fetch(`http://localhost:8000/caltexts/${text.id}`, {
+    return fetch(`https://lmv-journey.web.app/caltexts/${text.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

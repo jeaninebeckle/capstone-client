@@ -6,13 +6,13 @@ export const AnnouncementProvider = (props) => {
   const [announcements, setAnnouncements] = useState([])
 
   const getAnnouncements = () => {
-    return fetch("http://localhost:8000/announcements")
+    return fetch("https://lmv-journey.web.app/announcements")
         .then(res => res.json())
         .then(setAnnouncements)
   }
 
   const addAnnouncement = newAnnouncement => {
-    return fetch("http://localhost:8000/announcements", {
+    return fetch("https://lmv-journey.web.app/announcements", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const AnnouncementProvider = (props) => {
   }
 
   const deleteAnnouncement = (announcementId) => {
-    return fetch(`http://localhost:8000/announcements/${announcementId}`, {
+    return fetch(`https://lmv-journey.web.app/announcements/${announcementId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
