@@ -7,7 +7,7 @@ export const JourneyUserProvider = (props) => {
     const [journeyusers, setJourneyUsers] = useState([])
 
     const getJourneyUsers = () => {
-        return fetch("http://localhost:8000/journeyusers", {
+        return fetch("https://lmv-journey.web.app/journeyusers", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("journey_token")}`
             }  
@@ -17,7 +17,7 @@ export const JourneyUserProvider = (props) => {
     }
 
     const getJourneyUserById = (userId) => {
-      return fetch(`http://localhost:8000/journeyusers/${userId}`, {
+      return fetch(`https://lmv-journey.web.app/journeyusers/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const JourneyUserProvider = (props) => {
     }
 
     const updateJourneyUser = updatedUser => {
-      return fetch(`http://localhost:8000/journeyusers/${updatedUser.id}`, {
+      return fetch(`https://lmv-journey.web.app/journeyusers/${updatedUser.id}`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",

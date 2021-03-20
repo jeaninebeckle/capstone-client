@@ -7,7 +7,7 @@ export const SubjectProvider = (props) => {
   const [subjects, setSubjects] = useState([])
 
   const getSubjects = () => {
-    return fetch("http://localhost:8000/subjects")
+    return fetch("https://lmv-journey.web.app/subjects")
         .then(res => res.json())
         .then(setSubjects)
     }
