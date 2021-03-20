@@ -7,7 +7,7 @@ export const SubjectProvider = (props) => {
   const [subjects, setSubjects] = useState([])
 
   const getSubjects = () => {
-    return fetch("https://lmv-journey.web.app/subjects")
+    return fetch("https://lmv-journey.herokuapp.com/subjects")
         .then(res => res.json())
         .then(setSubjects)
     }

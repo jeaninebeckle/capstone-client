@@ -7,7 +7,7 @@ export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
 
     const getUsers = () => {
-        return fetch("https://lmv-journey.web.app/users", {
+        return fetch("https://lmv-journey.herokuapp.com/users", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("journey_token")}`
             }  
@@ -17,7 +17,7 @@ export const UserProvider = (props) => {
     }
 
     const getUserById = (userId) => {
-      return fetch(`https://lmv-journey.web.app/users/${userId}`, {
+      return fetch(`https://lmv-journey.herokuapp.com/users/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
