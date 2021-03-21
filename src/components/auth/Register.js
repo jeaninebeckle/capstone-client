@@ -22,7 +22,7 @@ export const Register = () => {
                 "email": email.current.value,
                 "password": password.current.value,
                 "username": email.current.value,
-                "is_staff": true,
+                "is_staff": false,
                 "display_name": displayName.current.value,
             }
 

@@ -42,6 +42,10 @@ export const NavBar = (p) => {
         }
         {
             (localStorage.getItem("journey_token") !==null) ? 
+                    <Nav.Link href="/needs-board">Needs Board</Nav.Link> : ""
+        }
+        {
+            (localStorage.getItem("journey_token") !==null) ? 
                     <Nav.Link href="/profile">Profile</Nav.Link> : ""
         }
         {

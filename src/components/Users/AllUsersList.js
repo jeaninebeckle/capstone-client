@@ -21,6 +21,7 @@ export const AllUsersList = () => {
             <tr>
               <th>Full Name</th>
               <th>Display Name</th>
+              <th>Email Address</th>
               <th>Status</th>
               <th className="member">Member Since</th>
               <th>Tutoring Subjects</th>
@@ -34,6 +35,7 @@ export const AllUsersList = () => {
                           <tr className="users" key={journeyuser.id}>
                             <td className="full-name">{journeyuser.user.first_name} {journeyuser.user.last_name}</td>
                             <td className="display-name">{journeyuser.display_name}</td>
+                            <td className="email">{journeyuser.user.email}</td>
                             { journeyuser.user.is_staff === true ? 
                                 <td className="user-status">Staff</td> :
                                 <td className="user-status">Volunteer</td>                           
