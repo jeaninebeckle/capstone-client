@@ -4,6 +4,7 @@ import { AnnouncementList } from "./Announcements/AnnouncementList"
 import { AnnouncementProvider } from "./Announcements/AnnouncementProvider"
 import { AnnouncementForm } from "./Announcements/NewAnnouncement"
 import { CategoryProvider } from "./Categories/CategoryProvider"
+import { EditNeed } from "./Needs/EditNeed"
 import { NeedProvider } from "./Needs/NeedProvider"
 import { NeedsForm } from "./Needs/NeedsForm"
 import { NeedsList } from "./Needs/NeedsList"
@@ -18,6 +19,7 @@ import { SubjectProvider } from "./Subjects/SubjectProvider"
 import { AllUsersList } from "./Users/AllUsersList"
 import { JourneyUserProvider } from "./Users/JourneyUserProvider"
 import { UserProvider } from "./Users/UserProvider"
+
 
 
 export const ApplicationViews = () => {
@@ -64,6 +66,13 @@ export const ApplicationViews = () => {
                   <Route exact path="/new-need" render={(props) => {
                       if (localStorage.getItem("journey_token")){
                       return <NeedsForm history={props.history} />
+                      } else {
+                        return <Redirect to="/" />
+                      }
+                  }} />
+                  <Route exact path="/edit-need/:needId(\d+)" render={(props) => {
+                      if (localStorage.getItem("journey_token")){
+                      return <EditNeed {...props} />
                       } else {
                         return <Redirect to="/" />
                       }

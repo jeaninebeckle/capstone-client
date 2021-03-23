@@ -1,8 +1,9 @@
 @import '../../styles/styles';
 
-// .users:nth-of-type(odd) {
-//   background-color: #351414;
-// }
+.users:nth-of-type(odd) {
+  background-color: #351414;
+  color: white
+}
 
 table, th, td, tr {
   // border: 1px solid black;

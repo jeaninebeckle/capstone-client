@@ -1,0 +1,64 @@
+@import '../../styles/styles';
+@import '../../styles/variables';
+
+.needs {
+  white-space: pre-line;
+}
+
+.needs-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.needs-item, .description {
+  @include body-font(20px, 400)
+}
+
+.needForm__title {
+  @include header-font(30px, 400)
+}
+
+.needs-board-page {
+  text-align: center;
+}
+
+.description, .new-need-btn {
+  margin-bottom: 50px;
+}
+
+.description {
+  text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-need, .edit-need {
+  margin: 50px;
+  margin-bottom: 30px;
+}
+
+.new-need-submit {
+  margin-left: 50px;
+}
+
+.save-need-edit {
+  margin-top: 30px;
+}
+
+.fa-edit {
+  float: left;
+}
+
+.fa-trash-alt {
+  float: right;
+}
+
+.modification-icons {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+}

@@ -34,9 +34,21 @@ export const NeedProvider = (props) => {
         .then(getNeeds)
 }
 
+  const updateNeed = need => {
+    return fetch(`https://lmv-journey.herokuapp.com/needs/${need.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("journey_token")}`
+        },
+        body: JSON.stringify(need)
+    })
+        .then(getNeeds)
+}
+
   return (
     <NeedContext.Provider value={{
-        needs, getNeeds, addNeed, deleteNeed
+        needs, getNeeds, addNeed, deleteNeed, updateNeed
     }}>
         {props.children}
     </NeedContext.Provider>

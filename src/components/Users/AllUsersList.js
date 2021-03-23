@@ -27,11 +27,11 @@ export const AllUsersList = () => {
               <th>Tutoring Subjects</th>
             </tr>
           </thead>
+          <tbody className="body"> 
             { 
                 journeyusers.length && journeyusers.map(journeyuser => {
                   return ( 
-                      
-                        <tbody className="body">          
+      
                           <tr className="users" key={journeyuser.id}>
                             <td className="full-name">{journeyuser.user.first_name} {journeyuser.user.last_name}</td>
                             <td className="display-name">{journeyuser.display_name}</td>
@@ -48,12 +48,11 @@ export const AllUsersList = () => {
                                 </>
                               )
                             })}</td>
-                          </tr>
-                        </tbody>
-                     
+                          </tr>    
                 )})
               }  
-            </table>
+            </tbody>
+        </table>
     </div>
 )
 
