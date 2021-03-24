@@ -9,6 +9,10 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
+  text-decoration:none;
+  color:#000;
+  background:rgb(239, 242, 234);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
 .needs-item, .description {
@@ -59,6 +63,7 @@
   display: flex;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 85%;
   justify-content: space-between;
+  padding-bottom: 10px;
 }

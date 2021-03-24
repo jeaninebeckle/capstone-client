@@ -32,7 +32,7 @@ export const AnnouncementList = ({ history }) => {
                 {
                   announcements.map(announcement => {
                     return <section className="announcement" key={announcement.id}>
-                              <p>{announcement.content} </p>
+                              <p className="announcement-content">{announcement.content} </p>
                               <p className="footer">Posted on {moment(announcement.date).format('MM/DD/YYYY')} {users.is_staff===true ? <i className="fas fa-trash-alt" onClick={() => window.confirm('Are you sure?') &&
                                   deleteAnnouncement(announcement.id).then(() => history.push("/"))
                                   }></i> : ""} </p>
