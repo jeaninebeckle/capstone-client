@@ -6,8 +6,11 @@
 }
 
 .accordion {
-  width: 450px;
+  width: 90%;
   margin-bottom: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-header:hover {
@@ -62,13 +65,18 @@ label {
 .resource-container {
   margin-left: auto;
   margin-right: auto;
-  // padding-left: 65px;
 }
 
 .resource-card {
-  height: 225px;
-  width: 450px;
+  max-height: 90%;
+  max-width: 90%;
   margin-bottom: 20px;
 }
 
+.col1, .col2, .col3, .col4 {
+  text-align: center;
+}
 
+ul {
+  text-align: left;
+}

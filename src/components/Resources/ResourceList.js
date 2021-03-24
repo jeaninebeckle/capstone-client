@@ -23,8 +23,8 @@ export const ResourceList = ({ history }) => {
     }
 
   <Container className="resource-container">
-    <Row xs={1} md={2}>
-      <Col>
+    <Row className="resource-row">
+      <Col className="col1" xs={12} md={6}>
       <img className="resource-card" src="school-subjects.png" alt="calculator and notepad"/>
     <Accordion>
       <Card>
@@ -45,7 +45,7 @@ export const ResourceList = ({ history }) => {
         </Card>
       </Accordion>
       </Col>
-      <Col>
+      <Col className="col2" xs={12} md={6}>
       <img className="resource-card" src="high-school.png" alt="students in a classroom"/>
       <Accordion>
         <Card>
@@ -66,9 +66,9 @@ export const ResourceList = ({ history }) => {
           </Card>
         </Accordion>
       </Col>
-    </Row>
-    <Row xs={1} md={2}>
-    <Col>
+    {/* </Row> */}
+    {/* <Row className="resource-row"> */}
+    <Col className="col3" xs={12} md={6}>
     <img className="resource-card" src="college.png" alt="girl holding a diploma"/>
       <Accordion>
         <Card>
@@ -89,7 +89,7 @@ export const ResourceList = ({ history }) => {
           </Card>
       </Accordion>
       </Col>
-      <Col>
+      <Col className="col4" xs={12} md={6}>
       <img className="resource-card" src="life-skills.png" alt="student driver sign"/>
       <Accordion >
         <Card>

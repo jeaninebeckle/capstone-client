@@ -102,6 +102,9 @@ button {
 }
 
 .new-a-submit {
-  // margin: 30px;
   margin-left: 50px;
+}
+
+.announcement-content {
+  @include body-font(20px, 400)
 }
