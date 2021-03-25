@@ -19,12 +19,12 @@ This is my backend capstone for Nashville Software School's Evening 12 Cohort! I
 1. Visit the deployed site at https://lmv-journey.web.app/
 
 ### Screenshots
-<img src='./assets/images/village1.png' width=500>
-<img src='./assets/images/village2.png' width=500>
-<img src='./assets/images/village3.png' width=500>
-<img src='./assets/images/village4.png' width=500>
-<img src='./assets/images/village5.png' width=500>
-<img src='./assets/images/village6.png' width=500>
+<img src='./images/village1.png' width=500>
+<img src='./images/village2.png' width=500>
+<img src='./images/village3.png' width=500>
+<img src='./images/village4.png' width=500>
+<img src='./images/village5.png' width=500>
+<img src='./images/village6.png' width=500>
 
 ### Contributors
 * [Jeanine Beckle](https://github.com/jeaninebeckle)
